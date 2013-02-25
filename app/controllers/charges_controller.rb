@@ -3,10 +3,10 @@ class ChargesController < ApplicationController
 
 	def new
 		if params[:theme_id]
-			session[:theme_id] = params[:theme_id]
+			cookies[:theme_id] = { :value => params[:theme_id], :expires => 10.hours.from_now } 
 		end
-		if session[:theme_id]
-			case session[:theme_id].to_i
+		if cookies[:theme_id]
+			case cookies[:theme_id].to_i
 			when 1
 				@theme = "Corgi"
 				@amount = 300
