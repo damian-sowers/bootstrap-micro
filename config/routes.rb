@@ -2,7 +2,7 @@ RetrieverHerokuCom::Application.routes.draw do
 
   devise_for :users
 
-  root :to => 'micro#index'
+  root :to => 'home#index'
 
   resources :charges
 
