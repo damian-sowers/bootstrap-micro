@@ -24,6 +24,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'haml'
+gem 'devise'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :test do
   gem 'capybara', '1.1.2'

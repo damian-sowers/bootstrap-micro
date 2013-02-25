@@ -1,0 +1,24 @@
+.navbar.navbar-fixed-top
+	.navbar-inner
+		.container
+			%a.brand{ :href => "/" } 
+				Bootstrap 
+				%i Micro
+			.nav
+				%ul.nav
+					%li{ :class => ('active' if current_page?(root_path))} 
+						%a{ :href => "/" } Home
+					%li
+						%a{ :href => "#" } About
+					%li
+						%a{ :href => "#" } Contact
+			.nav.pull-right
+				%ul.nav
+					- if user_signed_in?
+						%li.last
+							= link_to "Logout", destroy_user_session_path, :method => :delete
+					- else
+						%li{ :class => ('active' if current_page?(new_user_session_path))}  
+							%a{ :href => "/users/sign_in" } Login
+						%li.last{ :class => ('active' if current_page?(new_user_registration_path))}  
+							%a{ :href => "/users/sign_up" } Register
