@@ -8,7 +8,7 @@ class MicroController < ApplicationController
 
 	def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-      username == "damian" && password == micro
+      username == "damian" && password == "micro"
     end
   end
 end
