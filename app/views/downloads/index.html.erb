@@ -1,0 +1,30 @@
+<%= render "shared/nav" %>
+<div class="container">
+	<%= render :partial => "shared/flash", :locals => { :flash => flash } %>
+
+	<div class="row">
+		<div class="span8">
+			<h2>Your downloads</h2>
+			<hr>
+			<% @themes.each do |t| %>
+				<div class="row">
+					<div class="span2">
+						<%= image_tag t.picture_url, style: "width:180px;", class: "thumbnail" %>
+					</div>
+					<div class="span5">
+						<strong>Theme: <%= t.name %></strong><br/><br/>
+						<a class="btn btn-success" href="<%= t.download_url %>">Download Now</a>			
+					</div>
+				</div>
+				<hr>
+			<% end %>
+		</div>
+		<br/><br/><br/>
+		<div class="span4">
+			<div class="well">
+				Any questions or concerns? Send me an email at <a href="mailto:bootstrapmicro@gmail.com">bootstrapmicro@gmail.com</a>
+			</div>
+		</div>	
+</div>
+
+<%= render "shared/footer" %>

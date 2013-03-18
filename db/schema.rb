@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224204125) do
+ActiveRecord::Schema.define(:version => 20130318225919) do
+
+  create_table "charges", :force => true do |t|
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+    t.integer  "user_id"
+    t.string   "stripe_customer_id"
+    t.decimal  "amount_paid",        :precision => 8, :scale => 2
+    t.integer  "theme_id"
+    t.string   "theme_name"
+  end
+
+  create_table "themes", :force => true do |t|
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+    t.string   "name"
+    t.decimal  "price",            :precision => 8, :scale => 2
+    t.string   "author"
+    t.integer  "lines_css"
+    t.string   "picture_url"
+    t.string   "live_preview_url"
+    t.string   "download_url"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
