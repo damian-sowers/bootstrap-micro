@@ -2,6 +2,7 @@ class MicroController < ApplicationController
 	before_filter :authenticate
 
 	def index
+		@themes = Theme.all
 	end
 
 	protected

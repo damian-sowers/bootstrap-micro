@@ -19,74 +19,52 @@
 		%strong.theme_title Themes available:
 		%br
 		%br
+		- @themes.each do |t|
+			.row.row_spacer
+				.span8
+					= image_tag t.picture_url, class: "main_theme_image"
+				.span3
+					%strong.theme_title 
+						= t.name
+					%hr
+					= link_to("Buy Now", "https://bootstrapmicro.herokuapp.com/charges/new?theme_id=#{t.id}", class: "btn btn-success")
+					= link_to("Live Preview", "#{t.live_preview_url}", class: "btn btn-info")
+					%br
+					.meta
+						%strong Price:
+						%span.price 
+							$
+							= t.price
+						%br
+						%strong 
+							Author: 
+							= t.author
+						%br
+						.browsers
+							= image_tag "browsers.png"
+						.lines_added
+							%strong
+								Lines of CSS added to bootstrap:
+								= t.lines_css
+			%hr
 		.row.row_spacer
 			.span8
-				= image_tag "theme-default.jpg"
-			.span3
-				%strong.theme_title Corgi
-				%hr
-				%a.btn.btn-success{ :href => "/charges/new?theme_id=1" } Buy now
-				%a.btn.btn-info Live Preview
-				%br
-				.meta
-					%strong Price:
-					%span.price $2.99
-					%br
-					%strong Author: 
-					Damian Sowers
-					%br
-					%strong Date: 
-					2-24-13
-					.browsers
-						= image_tag "browsers.png"
-					.lines_added
-						%strong
-							Lines of CSS added to bootstrap:
-						60
-		%hr
-		.row.row_spacer
-			.span8
-				= image_tag "theme-default.jpg"
-			.span3
-				%strong.theme_title Boxer
-				%hr
-				%a.btn.btn-success{ :href => "/charges/new?theme_id=2" } Buy now
-				%a.btn.btn-info Live Preview
-				%br
-				.meta
-					%strong Price:
-					%span.price $2.99
-					%br
-					%strong Author: 
-					Damian Sowers
-					%br
-					%strong Date: 
-					2-24-13
-					.browsers
-						= image_tag "browsers.png"
-					.lines_added
-						%strong
-							Lines of CSS added to bootstrap:
-						60
-		%hr
-		.row.row_spacer
-			.span8
-				= image_tag "theme-default.jpg"
+				= image_tag "retriever.png", class: "main_theme_image"
 			.span3
 				%strong.theme_title Retriever
 				%hr
-				%a.btn.btn-success Buy now
-				%a.btn.btn-info Live Preview
+				%a.btn.btn-success{ :href => "https://github.com/damian-sowers/retriever-bootstrap" } Free Download!
+				%br
+				%br
+				%a.btn.btn-info{ :href => "http://www.3solarmasses.com/retriever-bootstrap/" } Live Preview
 				%br
 				.meta
 					%strong Price:
-					%span.price $2.99
+					%span.price FREE!
 					%br
 					%strong Author: 
 					Damian Sowers
 					%br
-					%strong Date: 
-					2-24-13
 					.browsers
 						= image_tag "browsers.png"
 					.lines_added

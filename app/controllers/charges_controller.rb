@@ -4,14 +4,9 @@ class ChargesController < ApplicationController
 
 	def new
 		if cookies[:theme_id]
-			case cookies[:theme_id].to_i
-			when 1
-				@theme = "Corgi"
-				@amount = 299
-			when 2
-				@theme = "Boxer"
-				@amount = 299
-			end
+			@row = Theme.find(cookies[:theme_id].to_i)
+			@theme = @row.name
+			@amount = @row.price * 100
 		else
 			@empty_cart = 1
 		end
@@ -39,7 +34,7 @@ class ChargesController < ApplicationController
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
-	  redirect_to charges_path
+	  redirect_to new_charge_path
 	else 
 	  #need to save the stripe customer id into the db with the current user row. Also just update the user account here to include this theme in their downloads list. Clear their cookie and session then redirect to download. Maybe fire off an email as well. 
 	  #current_user.id, stripe_customer_id, amount_paid, theme_id, theme_name
