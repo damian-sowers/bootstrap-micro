@@ -6,7 +6,8 @@ class ChargesController < ApplicationController
 		if cookies[:theme_id]
 			@row = Theme.find(cookies[:theme_id].to_i)
 			@theme = @row.name
-			@amount = @row.price * 100
+			#need to convert amount to i otherwise a price like 0.99 has a trailing 0. 99.0 and is invalid for stripe
+			@amount = (@row.price * 100).to_i
 		else
 			@empty_cart = 1
 		end
@@ -16,7 +17,7 @@ class ChargesController < ApplicationController
 
 	def create
 	  # Amount in cents
-	  @amount = params[:amount]
+	  @amount = params[:amount].to_i
 	  @theme_id = params[:theme_id]
 	  @theme = params[:theme]
 
@@ -34,6 +35,7 @@ class ChargesController < ApplicationController
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
+	  #
 	  redirect_to new_charge_path
 	else 
 	  #need to save the stripe customer id into the db with the current user row. Also just update the user account here to include this theme in their downloads list. Clear their cookie and session then redirect to download. Maybe fire off an email as well. 
@@ -46,6 +48,8 @@ class ChargesController < ApplicationController
 	  c.theme_name = @theme
 
 	  if c.save
+	  	#need to clear their cookies here. 
+	  	cookies.delete(:theme_id)
 	  	flash[:success] = "Thanks for purchasing. Your downloads are displayed below"
 			redirect_to :controller => "downloads", :action => "index", only_path: true
 		end
@@ -56,7 +60,7 @@ class ChargesController < ApplicationController
 
 		def set_theme_cookie
 			if params[:theme_id]
-				cookies[:theme_id] = { :value => params[:theme_id], :expires => 10.hours.from_now } 
+				cookies[:theme_id] = { :value => params[:theme_id], :expires => 10.days.from_now } 
 			end
 		end
 
