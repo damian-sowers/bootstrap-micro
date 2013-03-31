@@ -25,7 +25,13 @@
 	   -moz-box-shadow: 0 8px 6px -6px black;
 	        box-shadow: 0 8px 6px -6px black;
 }
+.footer ul {
+	margin-left: 0;
+	padding-left: 0;
+}
 .footer ul li {
+	margin-left:0;
+	padding-left: 0;
 	list-style-type:none;
 	display:inline;
 	margin-right:20px;

@@ -1,0 +1,17 @@
+<%= render "shared/nav" %>
+<div class="container">
+	<%= render :partial => "shared/flash", :locals => { :flash => flash } %>
+
+	<div class="row">
+		<div class="span8">
+			<div class="well">
+				<h2>Subscribe</h2>
+				<%= render 'shared/errors', :target => @subscription %>
+				<%= form_tag('/subscriptions') do %>
+					<%= email_field_tag(:email) %>
+					<%= submit_tag "Subscribe", class: "btn" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

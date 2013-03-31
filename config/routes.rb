@@ -4,9 +4,15 @@ RetrieverHerokuCom::Application.routes.draw do
 
   root :to => 'micro#index'
 
+  match "subscriptions/thanks" => "subscriptions#thanks"
   resources :charges
+  resources :subscriptions, only: [:new, :create]
 
   match "/downloads" => "downloads#index"
+  match "/contact" => "micro#contact"
+  match "/sell" => "micro#sell"
+  match "/terms" => "micro#terms"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

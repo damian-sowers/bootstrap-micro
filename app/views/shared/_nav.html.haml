@@ -8,10 +8,10 @@
 				%ul.nav
 					%li{ :class => ('active' if current_page?(root_path))} 
 						%a{ :href => "/" } Home
-					%li
-						%a{ :href => "#" } About
-					%li
-						%a{ :href => "#" } Contact
+					%li{ :class => ('active' if current_page?(contact_path))} 
+						%a{ :href => "/contact" } Contact
+					%li{ :class => ('active' if current_page?(sell_path))} 
+						%a{ :href => "/sell" } Sell a Theme
 			.nav.pull-right
 				%ul.nav
 					- if user_signed_in?

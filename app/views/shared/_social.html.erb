@@ -5,12 +5,12 @@
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		</div>
 		<div class="span4">
-			<form>
+			<%= form_tag('/subscriptions') do %>
 				<div class="input-append">
-					  <input class="span2" id="appendedInputButton" type="email">
-					  <input type="submit" class="btn" name="submit" value="Subscribe" />
+					<%= email_field_tag(:email, nil, class: "span2", id: "appendedInputButton", :placeholder => 'Email' ) %>
+					<%= submit_tag "Subscribe", class: "btn" %>
 				</div>
-			</form>
+			<% end %>
 		</div>
 	</div>
 </div>
