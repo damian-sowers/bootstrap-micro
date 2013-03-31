@@ -2,7 +2,7 @@
 %div{ :style => "background-color:#3c89c6; margin-top:-20px; margin-bottom:20px"}
 	.container
 		%div{ :style => "text-align:center"}
-			%p{ :style => "color: #eee; padding-top:8px; font-size:16px"} Beta launch special! Buy both themes for $5.00
+			%p.sale Beta launch special! First 100 customers can get all 3 themes for $5.99! Save $6.00. 
 .container
 	= render :partial => "shared/flash", :locals => { :flash => flash }
 	%div{ :style => "text-align:center"}
@@ -11,14 +11,34 @@
 			These 
 			%i micro 
 			bootstrap themes won't get in your way
+		= render "shared/social"
 	%hr
-	%p 
-		%strong What's a micro bootstrap theme? 
-		A micro bootstrap theme is just a small addition to the wonderful bootstrap framework. Usually a micro theme has less than 100 lines of CSS added to bootstrap. We've all been burned by themeforest templates. Use a micro bootstrap theme and don't struggle with the html/css ever again.
+	.about_text
+		%p{ :style => "font-size:16px" } 
+			%strong What's a micro bootstrap theme? 
+			A micro bootstrap theme is just a small addition to the wonderful bootstrap framework. Usually a micro theme has less than 300 lines of CSS added to bootstrap. We've all been burned by themeforest templates. Use a micro bootstrap theme and don't struggle with the html/css ever again.
+	%hr
 	.well
 		%strong.theme_title Themes available:
+		= render "shared/share"
 		%br
 		%br
+		.row.row_spacer
+			.span8
+				= image_tag "retriever.png", class: "main_theme_image"
+			.span3
+				%strong.theme_title Beta Launch Combo Pack
+				%hr
+				Get all three themes for the price of one! Save $6.00. Only available to the first 100 customers. Act fast.
+				%br
+				%br
+				= link_to("Buy Now", "https://bootstrapmicro.herokuapp.com/charges/new?theme_id=5", class: "btn btn-success")
+				.meta
+					%strong Price:
+					%span.price $5.99
+					%br
+					%strong Author: 3 Solar Masses
+		%hr
 		- @themes.each do |t|
 			.row.row_spacer
 				.span8
@@ -71,5 +91,3 @@
 						%strong
 							Lines of CSS added to bootstrap:
 						60
-
-= render "shared/footer"

@@ -1,0 +1,34 @@
+.row_spacer {
+  margin-bottom: 40px; }
+
+.theme_title {
+  font-size: 18px; }
+
+.meta {
+  margin-top: 20px; }
+
+.browsers {
+  margin-top: 15px; }
+
+.lines_added {
+  margin-top: 15px; }
+
+.price {
+  color: #3c89c6;
+  font-weight: bold; }
+
+.main_theme_image {
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black; }
+
+.footer ul li {
+  list-style-type: none;
+  display: inline;
+  margin-right: 20px; }
+
+.sale {
+  color: #eee;
+  padding-top: 8px;
+  font-size: 22px;
+  text-shadow: 0 1px 0 #333; }

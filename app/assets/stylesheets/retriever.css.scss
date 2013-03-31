@@ -14,7 +14,7 @@ h2, h3, h4, h5 {
 }
 .navbar-inner {
 	padding-top:10px;
-	background-image: url(image_path("stich.png"));
+	background-image: url("stich.png");
 	background-repeat: repeat-x;
 	background-color:#333;
 	height:49px;
@@ -65,5 +65,7 @@ h2, h3, h4, h5 {
 	background: -moz-linear-gradient(top, #ffffff, #f9f9f9);
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
+	background: url("fabric_of_squares_gray.png");
+	background-repeat: repeat;
 }
 
