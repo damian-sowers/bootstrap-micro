@@ -8,11 +8,10 @@ class ChargesController < ApplicationController
 			@theme = @row.name
 			#need to convert amount to i otherwise a price like 0.99 has a trailing 0. 99.0 and is invalid for stripe
 			@amount = (@row.price * 100).to_i
+			@theme_id = cookies[:theme_id]
 		else
 			@empty_cart = 1
 		end
-
-		@theme_id = cookies[:theme_id]
 	end
 
 	def create
