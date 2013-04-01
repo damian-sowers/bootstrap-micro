@@ -7,16 +7,43 @@
 			<h2>Your downloads</h2>
 			<hr>
 			<% @themes.each do |t| %>
-				<div class="row">
-					<div class="span2">
-						<%= image_tag t.picture_url, style: "width:180px;", class: "thumbnail" %>
+				<!-- account for combo pack -->
+				<% unless t.id == 3 %>
+					<div class="row">
+						<div class="span2">
+							<%= image_tag t.picture_url, style: "width:180px;", class: "thumbnail" %>
+						</div>
+						<div class="span5">
+							<strong>Theme: <%= t.name %></strong><br/><br/>
+							<a class="btn btn-success" href="<%= t.download_url %>">Download Now</a>			
+						</div>
 					</div>
-					<div class="span5">
-						<strong>Theme: <%= t.name %></strong><br/><br/>
-						<a class="btn btn-success" href="<%= t.download_url %>">Download Now</a>			
+					<hr>
+				<% else %>
+					<!-- combo pack -->
+					<% @corgi = Theme.find(1) %>
+					<div class="row">
+						<div class="span2">
+							<%= image_tag @corgi.picture_url, style: "width:180px;", class: "thumbnail" %>
+						</div>
+						<div class="span5">
+							<strong>Theme: <%= @corgi.name %></strong><br/><br/>
+							<a class="btn btn-success" href="<%= @corgi.download_url %>">Download Now</a>			
+						</div>
 					</div>
-				</div>
-				<hr>
+					<hr>
+					<% @boxer = Theme.find(2) %>
+					<div class="row">
+						<div class="span2">
+							<%= image_tag @boxer.picture_url, style: "width:180px;", class: "thumbnail" %>
+						</div>
+						<div class="span5">
+							<strong>Theme: <%= @boxer.name %></strong><br/><br/>
+							<a class="btn btn-success" href="<%= @boxer.download_url %>">Download Now</a>			
+						</div>
+					</div>
+					<hr>
+				<% end %>
 			<% end %>
 			<div class="row">
 					<div class="span2">
@@ -36,5 +63,3 @@
 			</div>
 		</div>	
 </div>
-
-<%= render "shared/footer" %>

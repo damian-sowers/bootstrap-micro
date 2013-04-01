@@ -25,28 +25,29 @@
 		%br
 		.row.row_spacer
 			.span8
-				= image_tag "retriever.png", class: "main_theme_image"
+				= image_tag "combo-pack.png"
 			.span3
 				%strong.theme_title Beta Launch Combo Pack
-				%hr
+				%hr.title_divider
 				Get all three themes for the price of one! Save $6.00. Only available to the first 100 customers. Act fast.
 				%br
 				%br
-				= link_to("Buy Now", "https://bootstrapmicro.herokuapp.com/charges/new?theme_id=5", class: "btn btn-success")
+				= link_to("Buy Now", "https://bootstrapmicro.herokuapp.com/charges/new?theme_id=3", class: "btn btn-success")
 				.meta
 					%strong Price:
 					%span.price $5.99
 					%br
-					%strong Author: 3 Solar Masses
+					%strong Author: 
+					3 Solar Masses
 		%hr
 		- @themes.each do |t|
 			.row.row_spacer
 				.span8
-					= image_tag t.picture_url, class: "main_theme_image"
+					= image_tag t.picture_url
 				.span3
 					%strong.theme_title 
 						= t.name
-					%hr
+					%hr.title_divider
 					= link_to("Buy Now", "https://bootstrapmicro.herokuapp.com/charges/new?theme_id=#{t.id}", class: "btn btn-success")
 					= link_to("Live Preview", "#{t.live_preview_url}", class: "btn btn-info")
 					%br
@@ -58,21 +59,22 @@
 						%br
 						%strong 
 							Author: 
-							= t.author
+						= t.author
 						%br
 						.browsers
 							= image_tag "browsers.png"
+						.p Standard Bootstrap Browser Compatibility
 						.lines_added
 							%strong
 								Lines of CSS added to bootstrap:
-								= t.lines_css
+							= t.lines_css
 			%hr
 		.row.row_spacer
 			.span8
-				= image_tag "retriever.png", class: "main_theme_image"
+				= image_tag "retriever.png"
 			.span3
 				%strong.theme_title Retriever
-				%hr
+				%hr.title_divider
 				%a.btn.btn-success{ :href => "https://github.com/damian-sowers/retriever-bootstrap" } Free Download!
 				%br
 				%br
@@ -83,11 +85,11 @@
 					%span.price FREE!
 					%br
 					%strong Author: 
-					Damian Sowers
+					3 Solar Masses
 					%br
 					.browsers
 						= image_tag "browsers.png"
 					.lines_added
 						%strong
 							Lines of CSS added to bootstrap:
-						60
+						64
