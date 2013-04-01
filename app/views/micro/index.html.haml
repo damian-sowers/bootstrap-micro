@@ -41,33 +41,34 @@
 					3 Solar Masses
 		%hr
 		- @themes.each do |t|
-			.row.row_spacer
-				.span8
-					= image_tag t.picture_url
-				.span3
-					%strong.theme_title 
-						= t.name
-					%hr.title_divider
-					= link_to("Buy Now", "https://bootstrapmicro.herokuapp.com/charges/new?theme_id=#{t.id}", class: "btn btn-success")
-					= link_to("Live Preview", "#{t.live_preview_url}", class: "btn btn-info")
-					%br
-					.meta
-						%strong Price:
-						%span.price 
-							$
-							= t.price
+			- unless t.id == 3
+				.row.row_spacer
+					.span8
+						= image_tag t.picture_url
+					.span3
+						%strong.theme_title 
+							= t.name
+						%hr.title_divider
+						= link_to("Buy Now", "https://bootstrapmicro.herokuapp.com/charges/new?theme_id=#{t.id}", class: "btn btn-success")
+						= link_to("Live Preview", "#{t.live_preview_url}", class: "btn btn-info")
 						%br
-						%strong 
-							Author: 
-						= t.author
-						%br
-						.browsers
-							= image_tag "browsers.png"
-						.p Standard Bootstrap Browser Compatibility
-						.lines_added
-							%strong
-								Lines of CSS added to bootstrap:
-							= t.lines_css
+						.meta
+							%strong Price:
+							%span.price 
+								$
+								= t.price
+							%br
+							%strong 
+								Author: 
+							= t.author
+							%br
+							.browsers
+								= image_tag "browsers.png"
+							.p Standard Bootstrap Browser Compatibility
+							.lines_added
+								%strong
+									Lines of CSS added to bootstrap:
+								= t.lines_css
 			%hr
 		.row.row_spacer
 			.span8
