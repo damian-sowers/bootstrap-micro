@@ -16,6 +16,7 @@ class ChargesController < ApplicationController
 	end
 
 	def create
+		@row = Theme.find(params[:theme_id].to_i)
 	  # Amount in cents
 	  @amount = params[:amount].to_i
 	  @theme_id = params[:theme_id]
