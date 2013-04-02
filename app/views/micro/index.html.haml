@@ -2,21 +2,19 @@
 %div{ :style => "background-color:#3c89c6; margin-top:-20px; margin-bottom:20px"}
 	.container
 		%div{ :style => "text-align:center"}
-			%p.sale Beta launch special! First 100 customers can get all 3 themes for $5.99! Save $6.00. 
+			%p.sale Beta launch special! First 100 customers can get all 3 themes for $0.99! 
 .container
 	= render :partial => "shared/flash", :locals => { :flash => flash }
 	%div{ :style => "text-align:center"}
-		%h1 You shouldn't be fighting your theme code. 
+		%h1 Bootstrap starter templates for $0.99
 		%h3 
-			These 
-			%i micro 
-			bootstrap themes won't get in your way
+			Get a fresh look for your Bootstrap projects
 		= render "shared/social"
 	%hr
 	.about_text
 		%p{ :style => "font-size:16px" } 
-			%strong What's a micro bootstrap theme? 
-			A micro bootstrap theme is just a small addition to the wonderful bootstrap framework. Usually a micro theme has less than 300 lines of CSS added to bootstrap. We've all been burned by themeforest templates. Use a micro bootstrap theme and don't struggle with the html/css ever again.
+			%strong What's a bootstrap starter template? 
+			A starter template is just a small addition to the wonderful bootstrap framework. Usually it has less than 300 lines of CSS added to bootstrap. We all love Bootstrap but the traditional look and feel is getting a little old. Get a fresh new look for your apps and sites with one of these starter templates!
 	%hr
 	.well
 		%strong.theme_title Themes available:
@@ -29,13 +27,13 @@
 			.span3
 				%strong.theme_title Beta Launch Combo Pack
 				%hr.title_divider
-				Get all three themes for the price of one! Save $6.00. Only available to the first 100 customers. Act fast.
+				Get all three themes for the price of one! Only available to the first 100 customers. Act fast.
 				%br
 				%br
 				= link_to("Buy Now", "https://bootstrapmicro.herokuapp.com/charges/new?theme_id=3", class: "btn btn-success")
 				.meta
 					%strong Price:
-					%span.price $5.99
+					%span.price $0.99
 					%br
 					%strong Author: 
 					3 Solar Masses
@@ -64,7 +62,7 @@
 							%br
 							.browsers
 								= image_tag "browsers.png"
-							.p Standard Bootstrap Browser Compatibility
+							.p IE8-10, Firefox, Safari, Opera, Chrome
 							.lines_added
 								%strong
 									Lines of CSS added to bootstrap:
