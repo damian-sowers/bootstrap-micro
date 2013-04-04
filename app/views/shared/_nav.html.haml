@@ -4,23 +4,12 @@
 			%a.brand{ :href => "/" } 
 				Bootstrap 
 				%i Micro
-			.nav
+			.nav.pull-right
 				%ul.nav
 					%li{ :class => ('active' if current_page?(root_path))} 
 						%a{ :href => "/" } Home
+					%li{ :class => ('active' if current_page?(about_path))} 
+						%a{ :href => "/about" } About
 					%li{ :class => ('active' if current_page?(contact_path))} 
 						%a{ :href => "/contact" } Contact
-					%li{ :class => ('active' if current_page?(sell_path))} 
-						%a{ :href => "/sell" } Sell a Theme
-			.nav.pull-right
-				%ul.nav
-					- if user_signed_in?
-						%li{ :class => ('active' if current_page?(downloads_path)) }
-							%a{ :href => "/downloads" } My Downloads
-						%li.last
-							= link_to "Logout", destroy_user_session_path, :method => :delete
-					- else
-						%li{ :class => ('active' if current_page?(new_user_session_path))}  
-							%a{ :href => "/users/sign_in" } Login
-						%li.last{ :class => ('active' if current_page?(new_user_registration_path))}  
-							%a{ :href => "/users/sign_up" } Register
+					

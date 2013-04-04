@@ -12,6 +12,7 @@ RetrieverHerokuCom::Application.routes.draw do
   match "/contact" => "micro#contact"
   match "/sell" => "micro#sell"
   match "/terms" => "micro#terms"
+  match "/about" => "micro#about"
 
 
   # The priority is based upon order of creation:

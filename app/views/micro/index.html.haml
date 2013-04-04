@@ -1,43 +1,23 @@
 = render "shared/nav"
-%div{ :style => "background-color:#3c89c6; margin-top:-20px; margin-bottom:20px"}
+%div{ :style => "background-color:#57ad68; margin-top:-20px; margin-bottom:20px"}
 	.container
 		%div{ :style => "text-align:center"}
-			%p.sale Beta launch special! First 100 customers can get all 3 themes for $0.99! 
+			%p.sale 
+				%a{ :href => "https://github.com/damian-sowers" }
+					Fork Me on Github!
 .container
 	= render :partial => "shared/flash", :locals => { :flash => flash }
 	%div{ :style => "text-align:center"}
-		%h1 Bootstrap starter templates for $0.99
+		%h1 Free Bootstrap Themes
 		%h3 
-			Get a fresh look for your Bootstrap projects
+			Get a fresh look for your Bootstrap projects. All of these themes are lightweight
 		= render "shared/social"
 	%hr
-	.about_text
-		%p{ :style => "font-size:16px" } 
-			%strong What's a bootstrap starter template? 
-			A starter template is just a small addition to the wonderful bootstrap framework. Usually it has less than 300 lines of CSS added to bootstrap. We all love Bootstrap but the traditional look and feel is getting a little old. Get a fresh new look for your apps and sites with one of these starter templates!
-	%hr
 	.well
-		%strong.theme_title Themes available:
+		%strong.theme_title New Themes available:
 		= render "shared/share"
 		%br
 		%br
-		.row.row_spacer
-			.span8
-				= image_tag "combo-pack.png"
-			.span3
-				%strong.theme_title Beta Launch Combo Pack
-				%hr.title_divider
-				Get all three themes for the price of one! Only available to the first 100 customers. Act fast.
-				%br
-				%br
-				= link_to("Buy Now", "https://bootstrapmicro.herokuapp.com/charges/new?theme_id=3", class: "btn btn-success")
-				.meta
-					%strong Price:
-					%span.price $0.99
-					%br
-					%strong Author: 
-					3 Solar Masses
-		%hr
 		- @themes.each do |t|
 			- unless t.id == 3
 				.row.row_spacer
@@ -47,19 +27,9 @@
 						%strong.theme_title 
 							= t.name
 						%hr.title_divider
-						= link_to("Buy Now", "https://bootstrapmicro.herokuapp.com/charges/new?theme_id=#{t.id}", class: "btn btn-success")
+						= link_to("Download", "#{t.download_url}", class: "btn btn-primary", style: "float:left; margin-right:5px")
 						= link_to("Live Preview", "#{t.live_preview_url}", class: "btn btn-info")
-						%br
 						.meta
-							%strong Price:
-							%span.price 
-								$
-								= t.price
-							%br
-							%strong 
-								Author: 
-							= t.author
-							%br
 							.browsers
 								= image_tag "browsers.png"
 							.p IE8-10, Firefox, Safari, Opera, Chrome
@@ -68,27 +38,3 @@
 									Lines of CSS added to bootstrap:
 								= t.lines_css
 			%hr
-		.row.row_spacer
-			.span8
-				= image_tag "retriever.png"
-			.span3
-				%strong.theme_title Retriever
-				%hr.title_divider
-				%a.btn.btn-success{ :href => "https://github.com/damian-sowers/retriever-bootstrap" } Free Download!
-				%br
-				%br
-				%a.btn.btn-info{ :href => "http://www.3solarmasses.com/retriever-bootstrap/" } Live Preview
-				%br
-				.meta
-					%strong Price:
-					%span.price FREE!
-					%br
-					%strong Author: 
-					3 Solar Masses
-					%br
-					.browsers
-						= image_tag "browsers.png"
-					.lines_added
-						%strong
-							Lines of CSS added to bootstrap:
-						64

@@ -39,5 +39,8 @@
   font-size: 22px;
   text-shadow: 0 1px 0 #333; }
 
+.sale a {
+  color: #eee; }
+
 .title_divider {
   margin-top: 5px; }
