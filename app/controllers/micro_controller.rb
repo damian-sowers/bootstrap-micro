@@ -2,7 +2,7 @@ class MicroController < ApplicationController
 	#before_filter :authenticate
 
 	def index
-		@themes = Theme.all
+		@themes = Theme.order("id ASC")
 	end
 
 	protected
